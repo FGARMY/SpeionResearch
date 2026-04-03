@@ -8,17 +8,45 @@ export default function HomePage() {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
       {/* Title block */}
-      <section className="mb-12">
+      <section className="mb-14">
         <h1
-          className="text-3xl font-bold mb-3"
+          className="text-4xl font-bold mb-5 tracking-tight text-[var(--color-primary)]"
           style={{ fontFamily: "var(--font-serif)" }}
         >
           Speion Research
         </h1>
-        <p className="text-lg text-[var(--color-secondary)] leading-relaxed max-w-2xl">
-          Independent research in software engineering, artificial intelligence,
-          and applied technology.
-        </p>
+        <div className="space-y-4">
+          <p className="text-xl text-[var(--color-primary)] leading-relaxed max-w-2xl font-serif">
+            Building production-grade AI systems, autonomous agents, and scalable software architectures.
+          </p>
+          <ul className="text-base text-[var(--color-secondary)] space-y-2 font-sans list-none p-0 m-0">
+            <li className="flex items-start gap-2">
+              <span className="text-[var(--color-muted)] mt-[1px]">→</span>
+              <span><strong>Focus:</strong> Multi-agent systems, LLM evaluation, real-world deployment</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-[var(--color-muted)] mt-[1px]">→</span>
+              <span>Open research + engineering-first approach</span>
+            </li>
+          </ul>
+        </div>
+        
+        <div className="mt-8 flex items-center gap-4 font-sans text-sm font-medium">
+          <Link 
+            href="/papers" 
+            className="px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-bg)] rounded-md hover:opacity-90 transition-opacity no-underline inline-flex items-center justify-center border border-[var(--color-primary)]"
+          >
+            View Papers
+          </Link>
+          <Link 
+            href="https://github.com/FGARMY" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-5 py-2.5 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
+          >
+            Explore Projects
+          </Link>
+        </div>
       </section>
 
       {/* Divider */}
