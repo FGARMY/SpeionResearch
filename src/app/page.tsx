@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PaperCard from "@/components/PaperCard";
 import ProjectCard from "@/components/ProjectCard";
+import NewsletterSignup from "@/components/Newsletter";
 import { getAllPapers, formatDate } from "@/lib/papers";
 
 export default function HomePage() {
@@ -276,6 +277,12 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      {/* Divider */}
+      <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
+
+      {/* Newsletter */}
+      <NewsletterSignup />
     </div>
   );
 }

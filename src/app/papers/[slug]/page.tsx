@@ -3,6 +3,8 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { getAllSlugs, getPaperBySlug, formatDate } from "@/lib/papers";
 import { mdxComponents } from "@/components/MDXComponents";
 import TableOfContents from "@/components/TableOfContents";
+import BibTeXCitation from "@/components/BibTeX";
+import NewsletterSignup from "@/components/Newsletter";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import type { Metadata } from "next";
@@ -185,6 +187,18 @@ export default async function PaperPage({ params }: PageProps) {
                 }}
               />
             </div>
+
+            {/* BibTeX Citation */}
+            <BibTeXCitation 
+              slug={slug}
+              title={meta.title}
+              authors={meta.authors}
+              date={meta.date}
+            />
+
+            <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
+
+            <NewsletterSignup />
           </article>
 
           {/* Sidebar */}

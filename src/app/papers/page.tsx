@@ -1,5 +1,6 @@
 import { getAllPapers } from "@/lib/papers";
-import PaperCard from "@/components/PaperCard";
+import SearchablePaperList from "@/components/SearchablePaperList";
+import NewsletterSignup from "@/components/Newsletter";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -38,27 +39,11 @@ export default function PapersPage() {
         </p>
       </section>
 
-      {years.length > 0 ? (
-        years.map((year) => (
-          <section key={year} className="mb-10">
-            <h2
-              className="text-xs font-semibold uppercase tracking-wider text-[var(--color-muted)] mb-2 pb-2 border-b border-[var(--color-border)]"
-              style={{ fontFamily: "var(--font-sans)" }}
-            >
-              {year}
-            </h2>
-            <div>
-              {papersByYear[year].map((paper) => (
-                <PaperCard key={paper.slug} paper={paper} />
-              ))}
-            </div>
-          </section>
-        ))
-      ) : (
-        <p className="text-[var(--color-muted)] text-sm italic">
-          No papers published yet.
-        </p>
-      )}
+      <SearchablePaperList papers={papers} />
+
+      <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
+
+      <NewsletterSignup />
     </div>
   );
 }

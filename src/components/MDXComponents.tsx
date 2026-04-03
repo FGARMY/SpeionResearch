@@ -1,4 +1,5 @@
 import React from "react";
+import AuthorityChart from "./AuthorityChart";
 
 function heading(level: number) {
   const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
@@ -59,4 +60,5 @@ export const mdxComponents = {
       {props.alt && <figcaption>{props.alt}</figcaption>}
     </figure>
   ),
+  AuthorityChart: (props: any) => <AuthorityChart {...props} />,
 };
