@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import PaperCard from "./PaperCard";
+import { PaperMeta } from "@/lib/types";
 
 interface PaperListProps {
-  papers: any[];
+  papers: PaperMeta[];
 }
 
 export default function SearchablePaperList({ papers }: PaperListProps) {
@@ -74,7 +75,7 @@ export default function SearchablePaperList({ papers }: PaperListProps) {
               {year}
             </h2>
             <div className="grid grid-cols-1 gap-12">
-              {papersByYear[year].map((paper: any) => (
+              {papersByYear[year].map((paper: PaperMeta) => (
                 <PaperCard key={paper.slug} paper={paper} />
               ))}
             </div>

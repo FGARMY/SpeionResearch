@@ -2,23 +2,15 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
-
-export interface PaperMeta {
-  title: string;
-  authors: string[];
-  date: string;
-  version: string;
-  abstract: string;
-  tags: string[];
-  contributions: string[];
-  github?: string;
-  pdf?: string;
-  status: "published" | "draft" | "preprint";
-  slug: string;
-  readingTime: string;
-}
+import { PaperMeta } from "./types";
 
 const PAPERS_DIR = path.join(process.cwd(), "src/content/papers");
+
+export function getAllSlugs(): string[] {
+  if (!fs.existsSync(PAPERS_DIR)) return [];
+  const files = fs.readdirSync(PAPERS_DIR).filter((f) => f.endsWith(".mdx"));
+  return files.map((filename) => filename.replace(/\.mdx$/, ""));
+}
 
 export function getAllPapers(): PaperMeta[] {
   if (!fs.existsSync(PAPERS_DIR)) return [];
@@ -79,22 +71,4 @@ export function getPaperBySlug(slug: string) {
     } as PaperMeta,
     content,
   };
-}
-
-export function getAllSlugs(): string[] {
-  if (!fs.existsSync(PAPERS_DIR)) return [];
-
-  return fs
-    .readdirSync(PAPERS_DIR)
-    .filter((f) => f.endsWith(".mdx"))
-    .map((f) => f.replace(/\.mdx$/, ""));
-}
-
-export function formatDate(dateStr: string): string {
-  const date = new Date(dateStr);
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 }

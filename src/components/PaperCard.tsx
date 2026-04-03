@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { PaperMeta, formatDate } from "@/lib/papers";
+import { PaperMeta } from "@/lib/types";
+import { formatDate } from "@/lib/utils";
 
 export default function PaperCard({ paper }: { paper: PaperMeta }) {
   return (

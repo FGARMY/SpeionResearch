@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { getAllSlugs, getPaperBySlug, formatDate } from "@/lib/papers";
+import { getAllSlugs, getPaperBySlug } from "@/lib/papers";
+import { formatDate } from "@/lib/utils";
 import { mdxComponents } from "@/components/MDXComponents";
 import TableOfContents from "@/components/TableOfContents";
 import BibTeXCitation from "@/components/BibTeX";

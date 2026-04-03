@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { X, Linkedin, Link as LinkIcon, Check } from "lucide-react";
+import { X, Link as LinkIcon, Check } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -77,26 +77,8 @@ export default function AboutPage() {
             { name: "Principal Researcher", role: "Founding Lead", bio: "Focussed on multi-agent software architectures and LLM benchmarking." },
             { name: "Systems Engineer", role: "R&D Engineer", bio: "Expert in scalable AI deployment and autonomous DevOps pipelines." },
             { name: "Core Contributor", role: "Research Associate", bio: "Specializes in applied technology and evaluation metrics." }
-          ].map((member, i) => (
-            <div key={i} className="group">
-              <div className="w-12 h-12 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-full mb-4 group-hover:border-[var(--color-primary)] transition-colors flex items-center justify-center text-[var(--color-muted)] font-mono text-xs">
-                {member.name.charAt(0)}
-              </div>
-              <h3 className="text-sm font-bold text-[var(--color-primary)] mb-1 leading-none">{member.name}</h3>
-              <p className="text-[0.625rem] uppercase tracking-widest text-[var(--color-muted)] font-bold mb-3">{member.role}</p>
-              <p className="text-xs text-[var(--color-secondary)] leading-relaxed">{member.bio}</p>
-            </div>
-          ))}
-        </div>
-
-        <h2 className="text-xl font-semibold mt-10 mb-4" style={{ fontFamily: "var(--font-sans)" }}>Team</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
-          {[
-            { name: "Principal Researcher", role: "Founding Lead", bio: "Focussed on multi-agent software architectures and LLM benchmarking." },
-            { name: "Systems Engineer", role: "R&D Engineer", bio: "Expert in scalable AI deployment and autonomous DevOps pipelines." },
-            { name: "Core Contributor", role: "Research Associate", bio: "Specializes in applied technology and evaluation metrics." }
-          ].map((member, i) => (
-            <div key={i} className="group">
+          ].map((member, idx) => (
+            <div key={idx} className="group">
               <div className="w-12 h-12 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-full mb-4 group-hover:border-[var(--color-primary)] transition-colors flex items-center justify-center text-[var(--color-muted)] font-mono text-xs">
                 {member.name.charAt(0)}
               </div>

@@ -3,7 +3,8 @@ import Image from "next/image";
 import PaperCard from "@/components/PaperCard";
 import ProjectCard from "@/components/ProjectCard";
 import NewsletterSignup from "@/components/Newsletter";
-import { getAllPapers, formatDate } from "@/lib/papers";
+import { getAllPapers } from "@/lib/papers";
+import { formatDate } from "@/lib/utils";
 
 export default function HomePage() {
   const papers = getAllPapers();
