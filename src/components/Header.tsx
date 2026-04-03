@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Header() {
   return (
@@ -38,6 +39,9 @@ export default function Header() {
           >
             About
           </Link>
+          <div className="pl-2 border-l border-[var(--color-border)] ml-2 invisible sm:visible">
+            <ThemeToggle />
+          </div>
         </nav>
       </div>
     </header>

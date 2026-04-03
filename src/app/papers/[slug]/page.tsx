@@ -5,6 +5,7 @@ import { mdxComponents } from "@/components/MDXComponents";
 import TableOfContents from "@/components/TableOfContents";
 import BibTeXCitation from "@/components/BibTeX";
 import NewsletterSignup from "@/components/Newsletter";
+import SharePaper from "@/components/SharePaper";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import type { Metadata } from "next";
@@ -195,6 +196,8 @@ export default async function PaperPage({ params }: PageProps) {
               authors={meta.authors}
               date={meta.date}
             />
+
+            <SharePaper title={meta.title} />
 
             <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
 
