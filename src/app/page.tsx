@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import PaperCard from "@/components/PaperCard";
 import { getAllPapers, formatDate } from "@/lib/papers";
 
 export default function HomePage() {
@@ -47,6 +48,29 @@ export default function HomePage() {
           >
             Explore Projects
           </Link>
+        </div>
+      </section>
+
+      {/* Divider */}
+      <hr className="border-t border-[var(--color-border)] mb-10" />
+
+      {/* Impact Section */}
+      <section className="mb-14 grid grid-cols-2 md:grid-cols-4 gap-4 text-center" style={{ fontFamily: "var(--font-sans)" }}>
+        <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>5+</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Research Papers</div>
+        </div>
+        <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>3</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Production Systems</div>
+        </div>
+        <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>10k+</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Lines AI Infra</div>
+        </div>
+        <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>∞</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Open Source</div>
         </div>
       </section>
 
@@ -123,40 +147,7 @@ export default function HomePage() {
         {recentPapers.length > 0 ? (
           <div className="space-y-0">
             {recentPapers.map((paper) => (
-              <article
-                key={paper.slug}
-                className="py-5 border-b border-[var(--color-border)] last:border-b-0"
-              >
-                <div
-                  className="flex items-center gap-2 mb-1 text-xs text-[var(--color-muted)]"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  <time dateTime={paper.date}>{formatDate(paper.date)}</time>
-                  <span className="text-[var(--color-border)]">·</span>
-                  <span>{paper.readingTime}</span>
-                  <span className="text-[var(--color-border)]">·</span>
-                  <span className="inline-flex items-center px-1.5 py-0.5 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded text-[0.6875rem] font-medium">
-                    {paper.version}
-                  </span>
-                </div>
-                <h3 className="text-base font-semibold mb-1 leading-snug">
-                  <Link
-                    href={`/papers/${paper.slug}`}
-                    className="text-[var(--color-primary)] no-underline hover:text-[var(--color-accent)]"
-                  >
-                    {paper.title}
-                  </Link>
-                </h3>
-                <p
-                  className="text-sm text-[var(--color-muted)] mb-1.5"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  {paper.authors.join(", ")}
-                </p>
-                <p className="text-sm text-[var(--color-secondary)] leading-relaxed line-clamp-2">
-                  {paper.abstract}
-                </p>
-              </article>
+              <PaperCard key={paper.slug} paper={paper} />
             ))}
           </div>
         ) : (

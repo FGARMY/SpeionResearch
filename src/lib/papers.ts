@@ -10,6 +10,7 @@ export interface PaperMeta {
   version: string;
   abstract: string;
   tags: string[];
+  contributions: string[];
   github?: string;
   pdf?: string;
   status: "published" | "draft" | "preprint";
@@ -38,6 +39,7 @@ export function getAllPapers(): PaperMeta[] {
       version: data.version || "v1",
       abstract: data.abstract || "",
       tags: data.tags || [],
+      contributions: data.contributions || [],
       github: data.github || undefined,
       pdf: data.pdf || undefined,
       status: data.status || "published",
@@ -68,6 +70,7 @@ export function getPaperBySlug(slug: string) {
       version: data.version || "v1",
       abstract: data.abstract || "",
       tags: data.tags || [],
+      contributions: data.contributions || [],
       github: data.github || undefined,
       pdf: data.pdf || undefined,
       status: data.status || "published",
