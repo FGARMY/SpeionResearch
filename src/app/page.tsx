@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import PaperCard from "@/components/PaperCard";
+import ProjectCard from "@/components/ProjectCard";
 import { getAllPapers, formatDate } from "@/lib/papers";
 
 export default function HomePage() {
@@ -105,7 +106,7 @@ export default function HomePage() {
           </li>
         </ul>
         
-        <div className="flex items-center gap-3 font-sans text-sm font-medium">
+        <div className="flex flex-wrap items-center gap-3 font-sans text-sm font-medium">
           <Link 
             href="/papers/speion-agent-architecture" 
             className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-bg)] rounded-md hover:opacity-90 transition-opacity no-underline inline-flex items-center justify-center border border-[var(--color-primary)]"
@@ -116,9 +117,17 @@ export default function HomePage() {
             href="https://github.com/FGARMY" 
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-border)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
+            className="px-4 py-2 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
           >
             View Code
+          </Link>
+          <Link 
+            href="https://github.com/FGARMY" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-4 py-2 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
+          >
+            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>Live Demo</span>
           </Link>
         </div>
       </section>
@@ -193,41 +202,7 @@ export default function HomePage() {
               image: "/images/research/devops.png"
             }
           ].map((impl, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row gap-6 md:gap-8 items-start">
-              <div className="flex-1 w-full relative aspect-[16/10] bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded shadow-sm overflow-hidden shrink-0 md:max-w-[400px]">
-                <Image 
-                  src={impl.image} 
-                  alt={impl.title} 
-                  fill 
-                  className="object-cover"
-                />
-              </div>
-              <div className="flex-1 w-full pt-1">
-                <div className="flex flex-wrap items-center gap-3 mb-2">
-                  <h3 className="text-xl font-bold leading-tight text-[var(--color-primary)]">
-                    {impl.title}
-                  </h3>
-                  <span className="inline-flex items-center px-2 py-0.5 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded text-[0.6875rem] font-medium text-[var(--color-muted)] whitespace-nowrap" style={{ fontFamily: "var(--font-sans)" }}>
-                    {impl.tag}
-                  </span>
-                </div>
-                <p className="text-[0.9375rem] text-[var(--color-secondary)] leading-relaxed mb-5 max-w-md">
-                  {impl.desc}
-                </p>
-                <Link
-                  href={impl.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors no-underline"
-                  style={{ fontFamily: "var(--font-sans)" }}
-                >
-                  <svg viewBox="0 0 24 24" width="15" height="15" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="opacity-80">
-                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                  </svg>
-                  View Repository →
-                </Link>
-              </div>
-            </div>
+            <ProjectCard key={idx} project={impl} />
           ))}
         </div>
       </section>
@@ -257,14 +232,35 @@ export default function HomePage() {
               title: "Applied Technology",
               desc: "Developer tooling, automation pipelines, and engineering productivity.",
             },
-          ].map((area) => (
-            <div
+          ].map((area, idx) => (
+              <div
               key={area.title}
-              className="p-5 border border-[var(--color-border)] rounded"
+              className="p-6 border border-[var(--color-border)] rounded-lg hover:shadow-md transition-shadow bg-[var(--color-bg)]"
             >
-              <h3 className="text-sm font-semibold mb-2">{area.title}</h3>
+              <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border)] mb-5 text-[var(--color-primary)]">
+                {idx === 0 && (
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <path d="M3 9h18"></path>
+                    <path d="M9 21V9"></path>
+                  </svg>
+                )}
+                {idx === 1 && (
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2v20"></path>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                )}
+                {idx === 2 && (
+                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                )}
+              </div>
+              <h3 className="text-base font-semibold mb-2 leading-snug">{area.title}</h3>
               <p
-                className="text-sm text-[var(--color-secondary)] leading-relaxed"
+                className="text-[0.9375rem] text-[var(--color-secondary)] leading-relaxed"
                 style={{ fontFamily: "var(--font-sans)" }}
               >
                 {area.desc}
