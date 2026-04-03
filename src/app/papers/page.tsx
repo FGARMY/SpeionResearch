@@ -28,12 +28,12 @@ export default function PapersPage() {
     <div className="max-w-4xl mx-auto px-6 py-12">
       <section className="mb-10">
         <h1
-          className="text-2xl font-bold mb-2"
+          className="text-4xl font-bold mb-3 tracking-tight text-[var(--color-primary)]"
           style={{ fontFamily: "var(--font-serif)" }}
         >
-          Papers
+          Research Papers
         </h1>
-        <p className="text-[var(--color-secondary)] text-sm" style={{ fontFamily: "var(--font-sans)" }}>
+        <p className="text-[var(--color-primary)] text-lg" style={{ fontFamily: "var(--font-sans)" }}>
           {papers.length} paper{papers.length !== 1 ? "s" : ""} published
         </p>
       </section>

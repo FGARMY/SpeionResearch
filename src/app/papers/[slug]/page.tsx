@@ -117,16 +117,16 @@ export default async function PaperPage({ params }: PageProps) {
 
               {/* Action bar */}
               <div
-                className="flex items-center gap-4 py-3 border-y border-[var(--color-border)] text-sm"
+                className="flex flex-wrap items-center gap-3 py-4 border-y border-[var(--color-border)] text-[0.8125rem]"
                 style={{ fontFamily: "var(--font-sans)" }}
               >
                 {meta.pdf && (
                   <a
                     href={meta.pdf}
-                    className="text-[var(--color-accent)] no-underline hover:underline font-medium"
+                    className="px-4 py-1.5 bg-[var(--color-bg)] text-[var(--color-primary)] rounded font-medium hover:bg-[var(--color-bg-secondary)] transition-colors no-underline border border-[var(--color-border)] shadow-sm"
                     download
                   >
-                    ↓ Download PDF
+                    Download PDF
                   </a>
                 )}
                 {meta.github && (
@@ -134,12 +134,29 @@ export default async function PaperPage({ params }: PageProps) {
                     href={meta.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-[var(--color-accent)] no-underline hover:underline font-medium"
+                    className="px-4 py-1.5 bg-[var(--color-bg)] text-[var(--color-primary)] rounded font-medium hover:bg-[var(--color-bg-secondary)] transition-colors no-underline border border-[var(--color-border)] shadow-sm"
                   >
-                    View on GitHub
+                    View Code
                   </a>
                 )}
               </div>
+
+              {/* Key Contributions */}
+              {meta.contributions && meta.contributions.length > 0 && (
+                <div className="mt-8 mb-4">
+                  <h4 className="text-sm font-semibold mb-3 text-[var(--color-primary)]" style={{ fontFamily: "var(--font-sans)" }}>
+                    Key Contributions:
+                  </h4>
+                  <ul className="space-y-2 list-none p-0 m-0">
+                    {meta.contributions.map((contribution, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-[0.9375rem] text-[var(--color-secondary)]">
+                        <span className="text-[var(--color-primary)] opacity-90 mt-[1px]" style={{ fontSize: "14px" }}>✔</span>
+                        <span>{contribution}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
               {/* Abstract */}
               <div className="mt-6 p-5 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded">
