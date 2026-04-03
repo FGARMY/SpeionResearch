@@ -11,7 +11,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "next": "^15.3.0",
-    "next-mdx-remote": "^6.0.0",
+    "next-mdx-remote": "6.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "reading-time": "^1.5.0",
@@ -29,5 +29,6 @@
     "eslint-config-next": "^15.3.0",
     "tailwindcss": "^4.1.0",
     "typescript": "^5.8.0"
-  }
+  },
+  "packageManager": "pnpm@10.33.0"
 }
