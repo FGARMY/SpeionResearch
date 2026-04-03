@@ -133,30 +133,37 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <hr className="border-t border-[var(--color-border)] mb-10" />
+      <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
 
       {/* Recent papers */}
       <section>
-        <div className="flex items-baseline justify-between mb-6">
+        <div className="flex items-baseline justify-between mb-8">
           <h2
             className="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)]"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            Recent Papers
+            Recent Research
           </h2>
           <Link
             href="/papers"
-            className="text-sm text-[var(--color-accent)] no-underline hover:underline"
+            className="text-xs font-medium text-[var(--color-accent)] hover:text-[var(--color-primary)] transition-colors no-underline uppercase tracking-wide"
             style={{ fontFamily: "var(--font-sans)" }}
           >
-            View all →
+            All Papers →
           </Link>
         </div>
 
         {recentPapers.length > 0 ? (
-          <div className="space-y-0">
-            {recentPapers.map((paper) => (
-              <PaperCard key={paper.slug} paper={paper} />
+          <div className="grid grid-cols-1 gap-12">
+            {recentPapers.map((paper, idx) => (
+              <div key={paper.slug} className={idx === 0 ? "relative p-6 -mx-6 bg-[var(--color-bg-secondary)] rounded-xl border border-[var(--color-border)] shadow-sm" : ""}>
+                {idx === 0 && (
+                  <div className="absolute -top-3 left-6 px-2 py-0.5 bg-[var(--color-primary)] text-[var(--color-bg)] text-[0.625rem] font-bold uppercase tracking-widest rounded leading-none" style={{ fontFamily: "var(--font-sans)" }}>
+                    Featured Research
+                  </div>
+                )}
+                <PaperCard paper={paper} />
+              </div>
             ))}
           </div>
         ) : (
@@ -208,7 +215,7 @@ export default function HomePage() {
       </section>
 
       {/* Divider */}
-      <hr className="border-t border-[var(--color-border)] my-16" />
+      <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
 
       {/* Research areas */}
       <section>

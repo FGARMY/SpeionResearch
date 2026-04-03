@@ -33,6 +33,31 @@ export default function AboutPage() {
           Bridge the gap between AI research and production systems.
         </p>
 
+        <h2 className="text-xl font-semibold mt-10 mb-4" style={{ fontFamily: "var(--font-sans)" }}>Methodology</h2>
+        <p>
+          We believe in <strong>System Design over Hype</strong>. Our research is evaluated against real-world production constraints—scalability, latency, and reliability. We don't just run experiments on synthetic datasets; we build autonomous agents that resolve real GitHub issues and evaluators that analyze production-scale context.
+        </p>
+
+        <h2 className="text-xl font-semibold mt-10 mb-4" style={{ fontFamily: "var(--font-sans)" }}>Engineering Stack</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 py-4 px-6 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg">
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-[var(--color-muted)] font-bold mb-2">Inference & R&D</h4>
+            <ul className="text-sm space-y-1 list-none p-0 m-0">
+              <li>• Multi-agent orchestration</li>
+              <li>• High-concurrency LLM inference</li>
+              <li>• Vector-native context retrieval</li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-[var(--color-muted)] font-bold mb-2">Platform & Ops</h4>
+            <ul className="text-sm space-y-1 list-none p-0 m-0">
+              <li>• Git-backed MDX pipelines</li>
+              <li>• Automated benchmarking</li>
+              <li>• Next.js 15 (App Router)</li>
+            </ul>
+          </div>
+        </div>
+
         <h2 className="text-xl font-semibold mt-10 mb-4" style={{ fontFamily: "var(--font-sans)" }}>Connect</h2>
         <p>
           For collaboration, open-source queries, or internship opportunities, please reach out via our{" "}
