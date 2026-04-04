@@ -68,46 +68,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Featured Research */}
-      <section className="mb-14 bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded-lg p-6 sm:p-8">
-        <div className="flex items-center gap-2 mb-4">
-          <span className="text-xl leading-none">🔥</span>
-          <h2
-            className="text-sm font-semibold uppercase tracking-wider text-[var(--color-primary)] m-0 leading-none"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            Featured Research
-          </h2>
-        </div>
-        
-        <h3 className="text-2xl font-bold mb-3 text-[var(--color-primary)]" style={{ fontFamily: "var(--font-serif)" }}>
-          Agent-Based Autonomous Code Generation
-        </h3>
-        
-        <ul className="text-base text-[var(--color-secondary)] mb-6 space-y-2 font-sans list-none p-0 m-0">
-          <li className="flex items-start gap-2">
-             <span className="text-[var(--color-muted)] mt-[1px]">−</span>
-             <span>3x efficiency vs single-agent systems</span>
-          </li>
-          <li className="flex items-start gap-2">
-             <span className="text-[var(--color-muted)] mt-[1px]">−</span>
-             <span>Tested on real production tasks</span>
-          </li>
-          <li className="flex items-start gap-2">
-             <span className="text-[var(--color-muted)] mt-[1px]">−</span>
-             <span>Open-source framework available</span>
-          </li>
-        </ul>
-        
-        <div className="flex flex-wrap items-center gap-3 font-sans text-sm font-medium">
-          <Link 
-            href="/papers/speion-agent-architecture" 
-            className="px-4 py-2 bg-[var(--color-primary)] text-[var(--color-bg)] rounded-md hover:opacity-90 transition-opacity no-underline inline-flex items-center justify-center border border-[var(--color-primary)]"
-          >
-            Read Paper
-          </Link>
-        </div>
-      </section>
+
 
       {/* Divider */}
       <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
