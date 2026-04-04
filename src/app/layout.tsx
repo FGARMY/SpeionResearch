@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   },
   description:
     "Independent research in software engineering, artificial intelligence, and applied technology.",
+  icons: {
+    icon: "/favicon.png",
+  },
   metadataBase: new URL("https://research.speion.com"),
   openGraph: {
     type: "website",

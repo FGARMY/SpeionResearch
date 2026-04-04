@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import ThemeToggle from "./ThemeToggle";
 
 import { useState } from "react";
@@ -12,18 +13,16 @@ export default function Header() {
 
   return (
     <header className="border-b border-[var(--color-border)]">
-      <div className="max-w-4xl mx-auto px-6 py-5 flex items-baseline justify-between">
-        <Link href="/" className="no-underline">
-          <h1
-            className="text-xl tracking-tight"
-            style={{
-              fontFamily: "var(--font-serif)",
-              fontWeight: 700,
-              color: "var(--color-primary)",
-            }}
-          >
-            Speion Research
-          </h1>
+      <div className="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+        <Link href="/" className="no-underline flex items-center">
+          <Image
+            src="/logo.png"
+            alt="Speion Research"
+            width={180}
+            height={40}
+            className="h-9 w-auto dark:invert-0 light:invert-1 transition-all"
+            priority
+          />
         </Link>
         {/* Desktop Nav */}
         <nav
