@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import PaperCard from "@/components/PaperCard";
-import ProjectCard from "@/components/ProjectCard";
 import NewsletterSignup from "@/components/Newsletter";
 import { getAllPapers } from "@/lib/papers";
 import { formatDate } from "@/lib/utils";
@@ -39,17 +38,9 @@ export default function HomePage() {
         <div className="mt-8 flex items-center gap-4 font-sans text-sm font-medium">
           <Link 
             href="/papers" 
-            className="px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-bg)] rounded-md hover:opacity-90 transition-opacity no-underline inline-flex items-center justify-center border border-[var(--color-primary)]"
+            className="px-5 py-2.5 bg-[var(--color-primary)] text-[var(--color-bg)] rounded-md hover:opacity-90 transition-opacity no-underline inline-flex items-center justify-center border border-[var(--color-primary)] w-full sm:w-auto"
           >
             View Papers
-          </Link>
-          <Link 
-            href="https://github.com/FGARMY" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-5 py-2.5 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
-          >
-            Explore Projects
           </Link>
         </div>
       </section>
@@ -60,16 +51,16 @@ export default function HomePage() {
       {/* Impact Section */}
       <section className="mb-14 grid grid-cols-2 md:grid-cols-4 gap-4 text-center" style={{ fontFamily: "var(--font-sans)" }}>
         <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
-          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>5+</div>
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>{papers.length}+</div>
           <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Research Papers</div>
         </div>
         <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
-          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>3</div>
-          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Production Systems</div>
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>0</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Active Projects</div>
         </div>
         <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
-          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>10k+</div>
-          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Lines AI Infra</div>
+          <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>-</div>
+          <div className="text-[0.6875rem] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Development Traces</div>
         </div>
         <div className="p-5 border border-[var(--color-border)] rounded-lg bg-[var(--color-bg-secondary)] flex flex-col justify-center shadow-sm">
           <div className="text-3xl font-bold text-[var(--color-primary)] mb-1.5" style={{ fontFamily: "var(--font-serif)" }}>∞</div>
@@ -115,22 +106,6 @@ export default function HomePage() {
           >
             Read Paper
           </Link>
-          <Link 
-            href="https://github.com/FGARMY" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
-          >
-            View Code
-          </Link>
-          <Link 
-            href="https://github.com/FGARMY" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 border border-[var(--color-border)] text-[var(--color-primary)] shadow-sm rounded-md hover:bg-[var(--color-bg-secondary)] transition-colors no-underline inline-flex items-center justify-center bg-[var(--color-bg)]"
-          >
-            <span className="flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>Live Demo</span>
-          </Link>
         </div>
       </section>
 
@@ -175,46 +150,7 @@ export default function HomePage() {
         )}
       </section>
 
-      {/* Research Implementations */}
-      <section className="mt-14">
-        <div className="flex items-center gap-2 mb-8">
-          <span className="text-xl leading-none">🧠</span>
-          <h2
-            className="text-sm font-semibold uppercase tracking-wider text-[var(--color-muted)] m-0 leading-none"
-            style={{ fontFamily: "var(--font-sans)" }}
-          >
-            Research Implementations
-          </h2>
-        </div>
-        
-        <div className="space-y-12">
-          {[
-            {
-              title: "Autonomous Coding Agent",
-              tag: "Live demo",
-              desc: "A fully autonomous agent capable of resolving highly complex GitHub issues across full codebases using multi-step reasoning capabilities.",
-              link: "https://github.com/FGARMY",
-              image: "/images/research/agent.png"
-            },
-            {
-              title: "LLM Evaluation Pipeline",
-              tag: "Benchmark tool",
-              desc: "An internal evaluation pipeline used to benchmark the performance, context retrieval, and reasoning capabilities of frontier foundation models.",
-              link: "https://github.com/FGARMY",
-              image: "/images/research/eval.png"
-            },
-            {
-              title: "AI DevOps Assistant",
-              tag: "Internal system",
-              desc: "A continuous integration agent that parses code reviews, summarizes diffs, and manages automated testing and deployment traces autonomously.",
-              link: "https://github.com/FGARMY",
-              image: "/images/research/devops.png"
-            }
-          ].map((impl, idx) => (
-            <ProjectCard key={idx} project={impl} />
-          ))}
-        </div>
-      </section>
+
 
       {/* Divider */}
       <div className="h-[1px] w-full bg-gradient-to-r from-[var(--color-border)] via-transparent to-[var(--color-border)] my-16 opacity-50"></div>
