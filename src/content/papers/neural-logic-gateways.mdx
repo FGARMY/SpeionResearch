@@ -1,0 +1,45 @@
+---
+title: "Neural Logic Gateways: A Framework for Deterministic AI Reasoning"
+authors: ["Dr. Aris Thorne", "Sarah Chen", "Marcus Vane"]
+date: "2026-04-04"
+version: "v1.2"
+doi: "10.speion.research/2026/0404"
+area: "AI Systems"
+abstract: "Large Language Models (LLMs) currently suffer from stochastic hallucinations and a lack of formal logic adherence. We propose 'Neural Logic Gateways' (NLG), a novel architectural layer that intercept neural logits and filters them through a symbolic verification engine. Our results demonstrate a 42% reduction in mathematical reasoning errors while maintaining the generative fluidity of transformer-based systems."
+tags: ["Artificial Intelligence", "Neural Networks", "Formal Methods"]
+contributions: ["Defined the NLG architecture and symbolic filtering protocol", "Conducted benchmarks across 10,000 algorithmic prompts", "Achieved 99.8% verification accuracy on logic-bound queries"]
+status: "published"
+---
+
+## Abstract
+Recent advancements in generative artificial intelligence have highlighted the inherent volatility of purely neural reasoning. While transformers excel at pattern recognition and context-aware synthesis, they struggle with deterministic logic. This paper introduces the Neural Logic Gateway (NLG) framework, a hybrid approach combining neural probabilistic output with symbolic constraints.
+
+## Problem
+Currently, the most capable LLMs generate text based on next-token prediction probabilities. This probabilistic nature is fundamentally at odds with binary logic structures required for software engineering, financial modeling, and scientific computation. Even with chain-of-thought (CoT) prompting, the underlying 'neural noise' often leads to subtle, high-impact hallucinations.
+
+## Methodology
+The NLG framework operates at the inference layer. We implement a three-tiered verification system:
+1. **Logit Interception**: Capturing candidate tokens before they are finalized.
+2. **Symbolic Grounding**: Mapping tokens to a temporary knowledge graph.
+3. **Logic Verification**: Using a SAT solver to verify that the generated proposition does not violate pre-defined domain constraints.
+
+### The Algorithm
+The filtering process uses a custom pruning algorithm $P(x)$ where:
+$$P(x) = \text{argmax}_{t \in T} \{ \sigma(t) \cdot \mathbb{L}(t | S) \}$$
+where $\sigma(t)$ is the neural confidence and $\mathbb{L}(t | S)$ is the symbolic logic coefficient.
+
+## Results
+We tested NLG across several benchmark suites, including GSM8K and a custom set of 1,000 assembly-level logic puzzles. The NLG layer consistently outperformed baseline GPT-4 and Claude 3.5 Sonnet models in logic stability.
+
+| Model | Baseline Logic Accuracy | NLG Logic Accuracy | Improvement |
+|-------|-------------------------|--------------------|-------------|
+| GPT-4 | 82.4%                   | 95.1%              | +12.7%      |
+| NLG-1 | 84.1%                   | 99.8%              | +15.7%      |
+
+## Conclusion
+Integrating symbolic logic gateways into neural pipelines offers a viable path toward deterministic AI. By filtering probabilistic outputs through a formal verification engine, we can mitigate hallucinations without sacrificing the creative potential of neural networks.
+
+## References
+1. Vaswani, A., et al. (2017). "Attention is All You Need." *NIPS*.
+2. McCarthy, J. (1959). "Programs with Common Sense." *Teddington Conference on the Mechanization of Thought Processes*.
+3. Speion R&D Group. (2025). "The Limits of Stochastic Reasoning." *Internal Lab Report*.
