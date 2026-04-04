@@ -2,7 +2,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-[var(--color-border)] mt-16">
       <div
-        className="max-w-4xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-[var(--color-muted)]"
+        className="max-w-4xl mx-auto px-6 py-6 flex flex-col items-center text-center gap-4 text-sm text-[var(--color-muted)] md:flex-row md:justify-between md:text-left"
         style={{ fontFamily: "var(--font-sans)" }}
       >
         <p className="whitespace-nowrap">&copy; {new Date().getFullYear()} Speion Research. All rights reserved.</p>

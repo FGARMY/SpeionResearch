@@ -18,6 +18,7 @@ export default function ProjectCard({ project }: { project: ProjectMeta }) {
           alt={project.title} 
           fill 
           className="object-cover"
+          sizes="(max-width: 640px) 100vw, 400px"
         />
       </div>
       <div className="flex-1 w-full pt-1">

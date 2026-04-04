@@ -36,7 +36,7 @@ export default function PaperCard({ paper }: { paper: PaperMeta }) {
         </div>
 
         {/* Summary */}
-        <p className="text-[0.9375rem] text-[var(--color-secondary)] leading-relaxed mt-1 line-clamp-3">
+        <p className="text-[0.9375rem] text-[var(--color-secondary)] leading-relaxed mt-1 line-clamp-none md:line-clamp-3">
           {paper.abstract}
         </p>
 
