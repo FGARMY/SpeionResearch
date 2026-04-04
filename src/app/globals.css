@@ -16,21 +16,25 @@
 }
 
 :root {
-  --background: #ffffff;
-  --background-secondary: #f9fafb;
-  --primary: #111827;
-  --secondary: #4b5563;
-  --muted: #6b7280;
-  --border: #e5e7eb;
+  --background: #f6f6f6;
+  --background-secondary: #ffffff;
+  --primary: #202122;
+  --secondary: #54595d;
+  --muted: #72777d;
+  --border: #a2a9b1;
+  --accent: #3366cc;
+  --accent-hover: #447ff5;
 }
 
 .dark {
-  --background: #0a0a0a;
-  --background-secondary: #121212;
-  --primary: #f9fafb;
+  --background: #101418;
+  --background-secondary: #1a1f24;
+  --primary: #eaecf0;
   --secondary: #9ca3af;
   --muted: #6b7280;
-  --border: #262626;
+  --border: #30363d;
+  --accent: #6699ff;
+  --accent-hover: #80aaff;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,500&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');

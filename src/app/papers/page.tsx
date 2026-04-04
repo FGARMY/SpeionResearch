@@ -34,9 +34,6 @@ export default function PapersPage() {
         >
           Research Papers
         </h1>
-        <p className="text-[var(--color-primary)] text-lg" style={{ fontFamily: "var(--font-sans)" }}>
-          {papers.length} paper{papers.length !== 1 ? "s" : ""} published
-        </p>
       </section>
 
       <SearchablePaperList papers={papers} />
