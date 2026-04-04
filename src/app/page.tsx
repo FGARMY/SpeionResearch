@@ -55,7 +55,7 @@ export default function HomePage() {
 
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
         {/* Left Column: Recent Research (Featured) */}
-        <div className="md:col-span-12 lg:col-span-7 space-y-8">
+        <div className="md:col-span-7 lg:col-span-8 space-y-8">
           <section id="recent" className="wiki-portal-box overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg)] h-full">
             <h2 className="bg-[#eaf3ff] dark:bg-[#1a2d44] px-4 py-2 text-sm font-bold border-b border-[var(--color-border)] flex items-center gap-2">
               <span className="text-[var(--color-primary)]">From today's featured research</span>
