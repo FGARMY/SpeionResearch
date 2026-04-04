@@ -26,7 +26,7 @@ export default function HomePage() {
           <ul className="text-base text-[var(--color-secondary)] space-y-2 font-sans list-none p-0 m-0">
             <li className="flex items-start gap-2">
               <span className="text-[var(--color-muted)] mt-[1px]">→</span>
-              <span><strong>Focus:</strong> Multi-agent systems, LLM evaluation, real-world deployment</span>
+              <span><strong>Focus:</strong> Quantum Computing, Artificial Intelligence, Neuro Science</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-[var(--color-muted)] mt-[1px]">→</span>
@@ -127,16 +127,49 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
             {
-              title: "Software Architecture",
-              desc: "Agent-based systems, distributed computing, and scalable design patterns.",
+              title: "Quantum Computing",
+              desc: "Researching quantum algorithms, error correction, and hybrid quantum-classical architectures.",
+              icon: (
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3"></circle>
+                  <line x1="3" y1="21" x2="21" y2="3"></line>
+                  <line x1="3" y1="3" x2="21" y2="21"></line>
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M20 12h2"></path>
+                </svg>
+              )
             },
             {
-              title: "Artificial Intelligence",
-              desc: "Large language models, evaluation frameworks, and applied machine learning.",
+              title: "AI",
+              desc: "Frontier research in large language models, autonomous agents, and robust evaluation frameworks.",
+              icon: (
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 2v2"></path>
+                  <path d="M12 20v2"></path>
+                  <path d="M16 4.4L14.5 6"></path>
+                  <path d="M9.5 18l-1.5 1.6"></path>
+                  <path d="M19.6 8L18 9.5"></path>
+                  <path d="M6 14.5l-1.6 1.5"></path>
+                  <path d="M20 12h2"></path>
+                  <path d="M2 12h2"></path>
+                  <path d="M19.6 16l-1.6-1.5"></path>
+                  <path d="M6 9.5L4.4 8"></path>
+                  <path d="M16 19.6L14.5 18"></path>
+                  <path d="M9.5 6l-1.5-1.6"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+              )
             },
             {
-              title: "Applied Technology",
-              desc: "Developer tooling, automation pipelines, and engineering productivity.",
+              title: "Neuro Science",
+              desc: "Studying neural architectures, brain-computer interfaces, and the foundations of biological intelligence.",
+              icon: (
+                <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              )
             },
           ].map((area, idx) => (
               <div
@@ -144,25 +177,7 @@ export default function HomePage() {
               className="p-6 border border-[var(--color-border)] rounded-lg hover:shadow-md transition-shadow bg-[var(--color-bg)]"
             >
               <div className="w-10 h-10 flex items-center justify-center rounded-md bg-[var(--color-bg-secondary)] border border-[var(--color-border)] mb-5 text-[var(--color-primary)]">
-                {idx === 0 && (
-                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
-                    <path d="M3 9h18"></path>
-                    <path d="M9 21V9"></path>
-                  </svg>
-                )}
-                {idx === 1 && (
-                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2v20"></path>
-                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
-                  </svg>
-                )}
-                {idx === 2 && (
-                  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                  </svg>
-                )}
+                {area.icon}
               </div>
               <h3 className="text-base font-semibold mb-2 leading-snug">{area.title}</h3>
               <p
