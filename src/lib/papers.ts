@@ -60,6 +60,8 @@ export function getPaperBySlug(slug: string) {
       authors: data.authors || [],
       date: data.date || "",
       version: data.version || "v1",
+      doi: data.doi || undefined,
+      area: data.area || undefined,
       abstract: data.abstract || "",
       tags: data.tags || [],
       contributions: data.contributions || [],

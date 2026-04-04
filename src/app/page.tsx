@@ -1,129 +1,126 @@
 import Link from "next/link";
-import Image from "next/image";
-import PaperCard from "@/components/PaperCard";
-import NewsletterSignup from "@/components/Newsletter";
 import { getAllPapers } from "@/lib/papers";
-import { formatDate } from "@/lib/utils";
-import { Home, FileText, Info, Globe, ExternalLink } from "lucide-react";
-
-const SidebarLink = ({ href, icon, children, external }: { href: string, icon: React.ReactNode, children: React.ReactNode, external?: boolean }) => (
-  <a href={href} className="flex items-center gap-2 text-[11px] text-[var(--color-accent)] hover:underline" target={external ? "_blank" : undefined}>
-    {icon}
-    {children}
-  </a>
-);
+import PaperCard from "@/components/PaperCard";
+import { ArrowRight, BookOpen, Cpu, Shield, Brain } from "lucide-react";
 
 export default function HomePage() {
   const papers = getAllPapers();
-  const recentPapers = papers.slice(0, 5);
+  const featuredPapers = papers.slice(0, 3);
 
   return (
-    <div className="space-y-8">
-      {/* Welcome Bar */}
-      <section className="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] p-6 rounded shadow-sm">
-        <h1 className="text-3xl font-bold mb-2 tracking-tight text-[var(--color-primary)]" style={{ fontFamily: "var(--font-serif)" }}>
-          Welcome to Speion Research
+    <div className="space-y-32">
+      {/* 1. Hero Section */}
+      <section className="text-center space-y-8 py-10">
+        <div className="inline-block px-3 py-1 bg-[#FAFAFA] border border-[#EEEEEE] text-[10px] uppercase tracking-[0.2em] font-sans font-bold text-[#999999] mb-4">
+          Independent Research Publication
+        </div>
+        <h1 className="text-5xl md:text-6xl font-serif font-bold tracking-tight text-[#111111] max-w-[800px] mx-auto leading-tight">
+          Speion Research Labs
         </h1>
-        <p className="text-sm text-[var(--color-secondary)]">
-          The <span className="font-semibold text-[var(--color-primary)]">Independent Encyclopedia</span> of software engineering, artificial intelligence, and neuro science research.
+        <p className="text-xl text-[#666666] font-sans font-medium tracking-tight max-w-[600px] mx-auto leading-relaxed">
+          Advancing human knowledge through rigorous computation, security research, and neuroscience.
         </p>
-        <div className="mt-4 flex gap-4 text-xs">
-          <span className="text-[var(--color-muted)]">Currently tracking: <strong className="text-[var(--color-primary)]">{papers.length} articles</strong></span>
-          <span className="text-[var(--color-muted)]">•</span>
-          <span className="text-[var(--color-muted)]">Language: <strong className="text-[var(--color-primary)]">English (Academic)</strong></span>
+        <div className="pt-6 flex flex-wrap justify-center gap-6">
+          <Link href="/papers" className="btn-academic">
+            Browse Research <ArrowRight size={14} />
+          </Link>
+          <Link href="/about" className="text-[13px] font-sans font-medium hover:underline text-secondary flex items-center gap-2">
+            Learn about our mission
+          </Link>
         </div>
       </section>
 
-      {/* Contents Box */}
-      <section className="bg-[var(--color-bg)] border border-[var(--color-border)] p-4 rounded inline-block min-w-[240px]">
-        <div className="flex items-baseline justify-between mb-2">
-          <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--color-primary)]">Contents</h2>
-          <span className="text-[10px] text-[var(--color-accent)] cursor-pointer hover:underline">[hide]</span>
+      {/* 2. Positioning Block */}
+      <section className="academic-box max-w-[700px] mx-auto">
+        <div className="abstract-title">Our Focus</div>
+        <p className="text-lg leading-relaxed text-[#333333]">
+          Speion Research Labs operates as an independent research collective dedicated to solving complex problems at the intersection of <strong>Artificial Intelligence</strong>, <strong>Cybersecurity</strong>, and <strong>Applied Automation</strong>. 
+        </p>
+        <p className="text-[#666666]">
+          Our goal is to provide high-credibility, open-access research that informs industry standards and provides developers with the intellectual foundation to build secure, intelligent systems.
+        </p>
+      </section>
+
+      {/* 3. Featured Research */}
+      <section id="featured" className="space-y-12">
+        <div className="flex items-center justify-between border-b border-[#EEEEEE] pb-4">
+          <h2 className="text-xs uppercase tracking-widest font-sans font-bold text-[#111111] border-none m-0 p-0">
+            Featured Publications
+          </h2>
+          <Link href="/papers" className="text-[11px] font-sans font-bold uppercase tracking-wider text-[#999999] hover:text-[#111111] transition-colors">
+            View Archive
+          </Link>
         </div>
-        <nav className="space-y-1 text-xs">
+        
+        <div className="space-y-16">
+          {featuredPapers.length > 0 ? (
+            featuredPapers.map((paper) => (
+              <div key={paper.slug}>
+                <PaperCard paper={paper} />
+              </div>
+            ))
+          ) : (
+            <p className="text-[#999999] italic text-sm text-center py-10">No publications currently featured in the archive.</p>
+          )}
+        </div>
+      </section>
+
+      {/* 4. Research Areas */}
+      <section id="areas" className="space-y-12">
+        <div className="border-b border-[#EEEEEE] pb-4">
+          <h2 className="text-xs uppercase tracking-widest font-sans font-bold text-[#111111] border-none m-0 p-0">
+            Active Domains
+          </h2>
+        </div>
+        
+        <div className="grid md:grid-cols-3 gap-12">
           {[
-            { id: "recent", label: "1 Recent Research" },
-            { id: "areas", label: "2 Research Areas" },
-            { id: "newsletter", label: "3 Community Newsletter" },
-          ].map(item => (
-            <a key={item.id} href={`#${item.id}`} className="block text-[var(--color-accent)] hover:underline">
-              {item.label}
-            </a>
+            { 
+              title: "AI Systems", 
+              desc: "Researching large language models, neural architecture search, and cognitive computing.",
+              icon: Brain
+            },
+            { 
+              title: "Cybersecurity", 
+              desc: "Deep-dives into zero-day vulnerabilities, cryptographic security, and cloud infrastructure.",
+              icon: Shield
+            },
+            { 
+              title: "Automation", 
+              desc: "Advanced logic systems for high-frequency trading and industrial workflow optimization.",
+              icon: Cpu
+            }
+          ].map((area) => (
+            <div key={area.title} className="space-y-4">
+              <div className="w-10 h-10 flex items-center justify-center bg-[#FAFAFA] border border-[#EEEEEE] rounded">
+                <area.icon size={20} className="text-[#333333]" />
+              </div>
+              <h3 className="font-serif font-bold text-lg m-0">{area.title}</h3>
+              <p className="text-[13px] text-[#666666] leading-relaxed">
+                {area.desc}
+              </p>
+              <Link href={`/areas/${area.title.toLowerCase().replace(' ', '-')}`} className="text-[11px] font-bold uppercase tracking-wider text-[#999999] hover:text-[#111111] mt-2 block">
+                Explore papers &rarr;
+              </Link>
+            </div>
           ))}
-        </nav>
+        </div>
       </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-        {/* Left Column: Recent Research (Featured) */}
-        <div className="md:col-span-7 lg:col-span-8 space-y-8">
-          <section id="recent" className="wiki-portal-box overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg)] h-full">
-            <h2 className="bg-[#eaf3ff] dark:bg-[#1a2d44] px-4 py-2 text-sm font-bold border-b border-[var(--color-border)] flex items-center gap-2">
-              <span className="text-[var(--color-primary)]">From today's featured research</span>
-            </h2>
-            <div className="p-6">
-              {recentPapers.length > 0 ? (
-                <div className="space-y-8">
-                  {recentPapers.map((paper, idx) => (
-                    <div key={paper.slug} className={idx === 0 ? "relative" : "pt-8 border-t border-[var(--color-border)] opacity-80"}>
-                      <PaperCard paper={paper} />
-                    </div>
-                  ))}
-                  <div className="pt-4 flex justify-end">
-                    <Link href="/papers" className="text-xs font-bold text-[var(--color-accent)] hover:underline">
-                      More featured research...
-                    </Link>
-                  </div>
-                </div>
-              ) : (
-                <p className="text-[var(--color-muted)] text-sm italic">
-                  No articles currently published in this portal.
-                </p>
-              )}
-            </div>
-          </section>
+      {/* 5. Final CTA */}
+      <section className="text-center py-20 border-t border-[#F5F5F5]">
+        <h2 className="font-serif text-3xl font-bold border-none mb-6">Contribute to the Lab</h2>
+        <p className="text-[#666666] max-w-[500px] mx-auto text-sm leading-relaxed mb-10">
+          Speion is an open-access lab. Browse our open source repositories or submit a research proposal to our independent board.
+        </p>
+        <div className="flex justify-center gap-6">
+          <Link href="https://github.com/FGARMY/SpeionResearch" className="btn-academic">
+            Source Code
+          </Link>
+          <button className="btn-academic">
+            Submit Proposal
+          </button>
         </div>
-
-        {/* Right Column: In the news / Research Areas */}
-        <div className="md:col-span-12 lg:col-span-5 space-y-8">
-          <section id="areas" className="wiki-portal-box overflow-hidden rounded border border-[var(--color-border)] bg-[var(--color-bg)]">
-            <h2 className="bg-[#f2f2f2] dark:bg-[#252525] px-4 py-2 text-sm font-bold border-b border-[var(--color-border)]">
-              Research Portals
-            </h2>
-            <div className="p-4 space-y-6">
-              {[
-                { title: "Quantum Computing", icon: "⚛️" },
-                { title: "Artificial Intelligence", icon: "🤖" },
-                { title: "Neuro Science", icon: "🧠" }
-              ].map(area => (
-                <div key={area.title} className="flex gap-4 group cursor-pointer">
-                  <div className="w-10 h-10 shrink-0 flex items-center justify-center bg-[var(--color-bg-secondary)] border border-[var(--color-border)] rounded text-xl">
-                    {area.icon}
-                  </div>
-                  <div>
-                    <h3 className="text-sm font-bold text-[var(--color-accent)] group-hover:underline">{area.title}</h3>
-                    <p className="text-[11px] text-[var(--color-secondary)] leading-snug mt-0.5">Explore the encyclopedia of {area.title.toLowerCase()} research papers and implementations.</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          <section className="bg-[var(--color-bg-secondary)] border border-[var(--color-border)] p-4 rounded">
-            <h2 className="text-xs font-bold uppercase tracking-widest text-[var(--color-muted)] mb-3">On this day</h2>
-            <div className="text-[0.8125rem] leading-relaxed text-[var(--color-secondary)]">
-              <p><strong>April 4:</strong> Speion Research platform reached stable Wikipedia-inspired layout architecture.</p>
-              <ul className="mt-2 list-disc list-inside space-y-1 text-[11px]">
-                <li>2026: UI overhaul completed.</li>
-                <li>2025: Initial R&D phase started.</li>
-              </ul>
-            </div>
-          </section>
-        </div>
-      </div>
-
-      {/* Newsletter (Footer Portal) */}
-      <section id="newsletter" className="bg-[#f8f9fa] dark:bg-[#1a1a1a] border border-[var(--color-border)] p-8 rounded text-center">
-        <NewsletterSignup />
       </section>
     </div>
   );

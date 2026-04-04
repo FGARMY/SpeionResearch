@@ -3,6 +3,8 @@ export interface PaperMeta {
   authors: string[];
   date: string;
   version: string;
+  doi?: string;
+  area?: string;
   abstract: string;
   tags: string[];
   contributions: string[];

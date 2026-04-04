@@ -1,66 +1,62 @@
 import Link from "next/link";
 import { PaperMeta } from "@/lib/types";
 import { formatDate } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
 
-export default function PaperCard({ paper }: { paper: PaperMeta }) {
+interface PaperCardProps {
+  paper: PaperMeta;
+}
+
+export default function PaperCard({ paper }: PaperCardProps) {
   return (
-    <article className="py-2">
-      <div className="flex flex-col gap-1.5">
-        {/* Title */}
-        <h2 className="text-[1.1rem] font-bold leading-snug">
-          <Link
-            href={`/papers/${paper.slug}`}
-            className="text-[var(--color-accent)] hover:underline no-underline"
-            style={{ fontFamily: "var(--font-serif)" }}
-          >
+    <article className="group space-y-6">
+      <div className="space-y-4">
+        <div className="metadata-line mb-0">
+          <span className="font-bold text-[#111111]">{paper.version}</span>
+          <span>{formatDate(paper.date)}</span>
+          {paper.area && (
+             <span className="bg-[#F9F9F9] px-2 py-0.5 border border-[#EEEEEE] rounded-[2px]">{paper.area}</span>
+          )}
+          {paper.doi && (
+             <span className="text-[#999999] font-mono text-[11px]">{paper.doi}</span>
+          )}
+        </div>
+        
+        <Link 
+          href={`/papers/${paper.slug}`} 
+          className="block no-underline group-hover:opacity-100"
+        >
+          <h3 className="text-2xl font-serif font-bold text-[#111111] leading-tight m-0 group-hover:underline transition-all">
             {paper.title}
-          </Link>
-        </h2>
+          </h3>
+        </Link>
 
-        {/* Metadata Line */}
-        <div className="flex flex-wrap items-center gap-x-2 text-[11px] text-[var(--color-muted)] font-sans">
-          <span className="font-semibold text-[var(--color-secondary)]">{paper.authors.join(", ")}</span>
-          <span>•</span>
-          <time dateTime={paper.date}>{formatDate(paper.date)}</time>
-          <span>•</span>
-          <span>{paper.readingTime}</span>
-          <span>•</span>
-          <span className="text-[var(--color-accent)]">{paper.version}</span>
-        </div>
-
-        {/* Summary */}
-        <p className="text-[0.8125rem] text-[var(--color-primary)] leading-relaxed mt-1">
-          {paper.abstract}
+        <p className="text-[12px] uppercase tracking-widest font-sans font-bold text-[#999999] m-0">
+          {paper.authors.join(", ")}
         </p>
+      </div>
 
-        {/* Actions - Wiki Style Links */}
-        <div className="flex items-center gap-4 mt-2 text-[11px] font-bold uppercase tracking-tight">
-          <Link
-            href={`/papers/${paper.slug}`}
-            className="text-[var(--color-accent)] hover:underline"
+      <p className="text-[14px] text-[#666666] leading-relaxed line-clamp-3 text-justify m-0">
+        {paper.abstract}
+      </p>
+
+      <div className="flex items-center gap-6 pt-2">
+        <Link 
+          href={`/papers/${paper.slug}`} 
+          className="text-[12px] font-sans font-bold uppercase tracking-widest text-[#111111] flex items-center gap-1.5 no-underline hover:underline"
+        >
+          Read Paper <ArrowUpRight size={14} />
+        </Link>
+        
+        {paper.pdf && (
+          <Link 
+            href={paper.pdf} 
+            target="_blank"
+            className="text-[11px] font-sans font-bold uppercase tracking-widest text-[#999999] hover:text-[#111111] no-underline transition-colors"
           >
-            Read Article
+            PDF (v{paper.version.replace('v', '')})
           </Link>
-          {paper.pdf && (
-            <a
-              href={paper.pdf}
-              className="text-[var(--color-accent)] hover:underline"
-              download
-            >
-              Full PDF
-            </a>
-          )}
-          {paper.github && (
-            <a
-              href={paper.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[var(--color-accent)] hover:underline"
-            >
-              Source Code
-            </a>
-          )}
-        </div>
+        )}
       </div>
     </article>
   );

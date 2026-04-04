@@ -47,7 +47,7 @@ export default async function PaperPage({ params }: PageProps) {
 
   return (
     <div className="relative">
-      {/* TOC Sidebar */}
+      {/* TOC - Fixed Header on Tablet/Mobile or Sidebar on wide screens */}
       <aside className="hidden xl:block fixed left-10 top-32 w-64 no-print h-[calc(100vh-160px)] overflow-y-auto">
         <div className="text-[10px] uppercase tracking-widest font-bold text-[#BBBBBB] mb-4">Contents</div>
         <TableOfContents />
@@ -78,7 +78,7 @@ export default async function PaperPage({ params }: PageProps) {
 
           <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-[#F5F5F5] no-print">
             {meta.pdf && (
-              <a href={meta.pdf} target="_blank" className="btn-academic">
+              <a href={meta.pdf} className="btn-academic">
                 <Download size={14} /> Download PDF
               </a>
             )}
@@ -98,7 +98,7 @@ export default async function PaperPage({ params }: PageProps) {
         </section>
 
         {/* Paper content */}
-        <section id="paper-content" className="prose-academic mt-12 mb-20">
+        <section className="prose-academic mt-12 mb-20">
           <MDXRemote
             source={content}
             components={mdxComponents}
@@ -113,12 +113,12 @@ export default async function PaperPage({ params }: PageProps) {
 
         {/* Footer actions */}
         <footer className="border-t border-[#EEEEEE] pt-12 space-y-12 no-print">
-          <section id="cite">
+          <section>
             <div className="abstract-title mb-6">Cite this paper</div>
             <CitationGenerator meta={meta} />
           </section>
           
-          <div className="bg-[#FAFAFA] border border-[#EEEEEE] p-8 text-center space-y-4">
+          <div className="bg-[#F9F9F9] p-8 text-center space-y-4">
             <h4 className="font-serif font-bold text-lg">Speion Research Labs Archive</h4>
             <p className="text-[13px] text-[#666666] max-w-[400px] mx-auto">
               This publication is archived on the decentralized web. Verified by the Speion Independent Board.
